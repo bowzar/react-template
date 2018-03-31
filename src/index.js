@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
-import "./index.css";
+import { AppContainer } from 'react-hot-loader';
 
-class App extends Component {
-    render() {
-        return <h1 className="header"> Hello, world, from HIDE haha ! </h1>
-    }
+import './index.less';
+import Home from './components/home/index';
+
+if (module.hot) {
+    module.hot.accept(() => {
+        ReactDom.render(
+            <AppContainer>
+                <Home />
+            </AppContainer>,
+            document.getElementById('root')
+        )
+    })
 }
 
 ReactDom.render(
-    <App />,
+    <AppContainer>
+        <Home />
+    </AppContainer>,
     document.getElementById('root')
 )
