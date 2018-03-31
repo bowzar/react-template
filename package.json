@@ -9,11 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run clean && webpack-dev-server --config webpack.pro.config.js",
     "build": "npm run clean && webpack --progress --config webpack.pro.config.js",
-    "devstart": "npm run clean && webpack-dev-server --hot --open --config webpack.dev.config.js",
+    "devstart": "npm run clean && webpack-dev-server --hot --config webpack.dev.config.js",
     "devbuild": "npm run clean && webpack --progress --config webpack.dev.config.js",
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^3.1.3"
