@@ -4,22 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const publicPath = '/';
 
 module.exports = {
-    entry: [
-		'react-hot-loader/patch',
-		path.resolve(__dirname, './src/index.js')
-	],
     output: {
         path: path.resolve(__dirname, 'dist'), //打包文件的输出路径
         filename: 'bundle.js', //打包文件名
         publicPath: publicPath,
     },
-    //配置webpack-dev-server热更新，采用非Node方式
-	devServer: {
-        publicPath: publicPath,
-		contentBase: path.resolve(__dirname, 'dist'),
-		inline: true,
-		hot: true,	
-	},
     module: {
         rules: [ //配置加载器
             {
@@ -32,11 +21,11 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-				enforce: 'pre', //加载器的执行顺序，不设置为正常执行，pre（前）|post（后），eslint是检查代码规范，应该在编译前就执行
-				loader: 'eslint-loader',
+                enforce: 'pre', //加载器的执行顺序，不设置为正常执行，pre（前）|post（后），eslint是检查代码规范，应该在编译前就执行
+                loader: 'eslint-loader',
             },
             {
-                test: /\.(css|less)$/, 
+                test: /\.(css|less)$/,
                 use: [
                     {
                         loader: 'style-loader',
@@ -59,7 +48,7 @@ module.exports = {
                                 require('postcss-flexbugs-fixes')
                             ]
                         }
-            
+
                     }
                 ]
             },
@@ -67,7 +56,7 @@ module.exports = {
                 test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
                 loader: 'url-loader',
                 options: {
-                  limit: 10000, //1w字节以下大小的图片会自动转成base64
+                    limit: 10000, //1w字节以下大小的图片会自动转成base64
                 },
             },
         ],

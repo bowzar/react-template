@@ -7,8 +7,10 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run clean && webpack-dev-server --hot --open",
-    "build": "npm run clean && webpack --progress",
+    "start": "npm run clean && webpack-dev-server --config webpack.pro.config.js",
+    "build": "npm run clean && webpack --progress --config webpack.pro.config.js",
+    "devstart": "npm run clean && webpack-dev-server --hot --open --config webpack.dev.config.js",
+    "devbuild": "npm run clean && webpack --progress --config webpack.dev.config.js",
     "clean": "rimraf dist"
   },
   "dependencies": {
