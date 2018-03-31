@@ -1,11 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './App'
+import React, { Component } from 'react';
+import ReactDom from 'react-dom';
+import "./index.css";
 
-const renderDom = Component => {
-    render(
-        <Component />,
-        document.getElementById('app')
-    );
+class App extends Component {
+    render() {
+        return <h1 className="header"> Hello, world, from HIDE haha ! </h1>
+    }
 }
-renderDom(App);
+
+ReactDom.render(
+    <App />,
+    document.getElementById('root')
+)
