@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Buttons } from './buttons';
-import { goAction, cautionAction, stopAction } from './actions';
+import { goAction, cautionAction, stopAction } from '../../actions';
 
 const mapStateToProps = state => {
     return {
