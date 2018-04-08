@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { reducers } from './reducers';
+
 import { AppContainer } from 'react-hot-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -10,9 +15,11 @@ if (module.hot) {
     module.hot.accept(() => {
         ReactDom.render(
             <AppContainer>
-                <MuiThemeProvider>
-                    <Home />
-                </MuiThemeProvider>
+                <Provider store={createStore(reducers)}>
+                    <MuiThemeProvider>
+                        <Home />
+                    </MuiThemeProvider>
+                </Provider>
             </AppContainer>,
             document.getElementById('root')
         )
@@ -21,9 +28,11 @@ if (module.hot) {
 
 ReactDom.render(
     <AppContainer>
-        <MuiThemeProvider>
-            <Home />
-        </MuiThemeProvider>
+        <Provider store={createStore(reducers)}>
+            <MuiThemeProvider>
+                <Home />
+            </MuiThemeProvider>
+        </Provider>
     </AppContainer>,
     document.getElementById('root')
 )
